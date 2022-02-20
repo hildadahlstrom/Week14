@@ -4,11 +4,8 @@ import {TiStarFullOutline} from 'react-icons/ti';
 import {TiStarHalfOutline} from 'react-icons/ti';
 
 let index = 0;
-const emptyStar = <TiStarOutline />;
-const fullStar = <TiStarFullOutline />;
-const halfStar = <TiStarHalfOutline />;
 
-function makeStarArray(num){
+function makeStarArray(num){//creates an array of 5 star icons, fills them in depending what the number is
     let arr = [];
     let half = false;
     for(let i = 1; i <= 5; i++){
@@ -30,9 +27,7 @@ function makeStarArray(num){
 }
 
 function Stars({number}) {
-    
     const array = makeStarArray(number);
-
     return (
       <span>
           {array}

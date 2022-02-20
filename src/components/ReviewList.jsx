@@ -2,14 +2,12 @@ import React from 'react'
 import Review from './Review'
 import Stars from './Stars'
 
-function averageRating (arr){
+function averageRating (arr){//finds the average of the ratings within an array of reviews
     let ratings = [];
+    let sum = 0;
     for(const item of arr){
         ratings.push(+item.rating);
     }
-
-    // console.log(ratings);
-    let sum = 0;
     if(ratings.length !== 0){
         for(let i = 0; i < ratings.length; i ++){
             sum += ratings[i];
@@ -17,40 +15,34 @@ function averageRating (arr){
         }
         let avg = sum/ratings.length;
         avg = Math.round(avg*10)/10;
-        // console.log(avg);
         return avg;
     }
     else{
         return 0;
     }
-    
 }
 
 function ReviewList({reviews}) {
 
-    // let ratingArray = createRatingArray(reviews);
-
-    // const total = ratingArray.reduce((acc, curr) => {
-    //     return acc + curr;
-    // },0);
-
-    // let sum = 0;
-    // for(let n of ratingArray){
-    //     sum += n;
-    // }
-    // console.log(sum);
-    // const total = ratingArray.reduce(
-    //     (prev, cur) => prev + cur);
-    // console.log(total);
-
     if(!reviews || reviews.length === 0){
-        return <h4>There are no reviews for this movie yet</h4>
+        return (
+            <>
+            <h4>There are no reviews for this movie yet</h4>
+            <h4>Leave your own!</h4>
+            </>
+            )
+            
     }
     return (
-        <div>
-
-            <h4>Reviews({reviews.length})</h4>
-            <h4>Average Rating: <Stars number = {averageRating(reviews)}/> ({averageRating(reviews)})</h4>
+        <div className='container'>
+            <div className="row">
+                <div className="col-sm-9">
+                    <h4>Average Rating: <Stars number = {averageRating(reviews)}/></h4>
+                </div>
+                <div className="col-sm-3">
+                    <h4>Reviews: ({reviews.length})</h4>
+                </div>
+            </div>
             {reviews.map((review, index) => (
                 <Review 
                 key ={0 + index}
@@ -60,6 +52,5 @@ function ReviewList({reviews}) {
         </div>
     )
 }
-
 
 export default ReviewList

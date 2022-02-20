@@ -1,6 +1,8 @@
 const MovieArray = [
     {name: 'The Lion King',
     releaseDate: '1994',
+    ageRating: 'PG',
+    minutes: '89 minutes',
     image: "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_.jpg",
     synopsis:'Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.', 
     reviews: 
@@ -31,6 +33,8 @@ const MovieArray = [
   
     {name: 'Wall-E',
     releaseDate: '2008',
+    ageRating: 'G',
+    minutes: '103 minutes',
     image: "https://static0.cbrimages.com/wordpress/wp-content/uploads/2020/03/wall-e-lonely-poster.jpg?q=50&fit=crop&w=740&h=1054&dpr=1.5",
     synopsis:'In the distant future, a small waste-collecting robot inadvertently embarks on a space journey that will ultimately decide the fate of mankind.',
     reviews: []

@@ -1,9 +1,7 @@
 import React from 'react'
 import Movie from './Movie';
 
-
 function MovieList({movies}) {
-    
     return(
         <>
             <h1>Disney Movies</h1>
@@ -13,12 +11,12 @@ function MovieList({movies}) {
                     reviews = {movie.reviews}
                     key = {index} 
                     movie = {movie}
+                    id = {index}
                     />
                 ))}
             </div>
         </>
     );
-    
 }
 
 export default MovieList

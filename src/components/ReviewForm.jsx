@@ -1,8 +1,6 @@
 import React from 'react'
 import Rating from './Rating';
 import { useState } from 'react'
-// import Stars from './Stars';
-
 
 function ReviewForm({handleAdd}) {
     const [username, setUsername] = useState('');
@@ -15,7 +13,6 @@ function ReviewForm({handleAdd}) {
     const handleContentChange = (e) =>{
         setContent(e.target.value)
     }
-
     const handleSubmit = (e) =>{
         e.preventDefault();
         if(content.trim().length > 0) {
@@ -24,12 +21,14 @@ function ReviewForm({handleAdd}) {
                 content,
                 rating
             }
+            console.log(newReview);
             handleAdd(newReview);
             setUsername('');
             setContent('');
-            setRating(1);
+            // setRating(1);
         }
     }
+
     return (
         <div>
             <div className="card">
@@ -38,25 +37,34 @@ function ReviewForm({handleAdd}) {
                 </div>
                 <div className="card card-body">
                     <form onSubmit = {handleSubmit}>
-                        <Rating select = {(rating) => setRating(rating)}/>
-                        <div className="input-group">
-                            <label htmlFor="username-input">Username </label>
+                        <div className="form-group">
+                            <label htmlFor="username-input">Name or Username </label>
                             <input 
+                            className = "form-control"
                             id = "username-input"
                             type="text" 
                             onChange={handleNameChange}
                             placeholder = 'Name or Username'
                             value = {username}
                             />
-                            <input 
-                            className = ""
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor='content-input'>Your Review</label>
+                            <textarea 
+                            id = "content-input"
+                            className = "review-content form-control"
+                            rows = "4"
                             type="text" 
                             onChange={handleContentChange}
                             placeholder = 'Write your review'
                             value = {content}
                             />
-                            <br/>
-                            <button className = "btn" type="submit">Submit Review</button>
+                        </div>
+                        <div className = "form-group">
+                            <Rating select = {(rating) => setRating(rating)}/>
+                        </div>
+                        <div>
+                            <button className = "btn btn-primary" type="submit">Submit Review</button>
                         </div>
                     </form>
                 </div>
@@ -64,7 +72,6 @@ function ReviewForm({handleAdd}) {
         </div>
         
     )
-    debugger;
 }
 
 export default ReviewForm
